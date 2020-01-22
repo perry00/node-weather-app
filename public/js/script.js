@@ -1,7 +1,3 @@
-console.log('Client side Jvascript')
-
-
-
 
 const formSubmit = document.querySelector('form')
 const search = document.querySelector('input')
