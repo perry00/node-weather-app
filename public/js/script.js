@@ -12,7 +12,7 @@ formSubmit.addEventListener('submit', (e) => {
   fristP.textContent = 'Loading...'
   secondP.textContent = ''
 
-  fetch('http://localhost:3000/weather?address=' + location).then((response) => {
+  fetch('/weather?address=' + location).then((response) => {
     response.json().then((data) => {
       if(data.error) {
         fristP.textContent = data.error

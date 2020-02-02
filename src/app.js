@@ -8,14 +8,15 @@ const forecast = require('./utils/forecast')
 
 
 const app = express()
+const port = process.env.PORT || 3000
     ///// PATHES
 const publicDirPath = path.join(__dirname, '../public')
 const viewsDirPath = path.join(__dirname, '../templates/views')
 const partialsDirPath = path.join(__dirname, '../templates/partials')
     ///// SET DIR
+app.use(express.static(publicDirPath))
 app.set('view engine', 'hbs')
 app.set('views', viewsDirPath)
-app.use(express.static(publicDirPath))
 hbs.registerPartials(partialsDirPath)
 
 app.get('', (req, res) => {
@@ -70,6 +71,6 @@ app.get('*', (req, res) => {
 
 
 
-app.listen(3000, () => {
-  console.log('Server is up and running on port 3000')
+app.listen(port, () => {
+  console.log('Server is up and running on port ' + port)
 })
